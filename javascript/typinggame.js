@@ -1,4 +1,4 @@
-const words = ["apple", "banana", "grape", "orange", "kiwi"];
+const words = ["apple", "banana", "grape", "orange", "kiwi", "mango", "blackberries", "pears", "cherry", "peach", "watermelon"];
 let currentWord = "";
 let time = 60;
 let score = 0;
