@@ -1,53 +1,61 @@
-document.getElementById('play-button').addEventListener('click', () => {
-    document.getElementById('home-screen').classList.add('hidden');
-    document.getElementById('game-board').classList.remove('hidden');
+const WebSocket = require('ws');
+const server = new WebSocket.Server({ port: 8080 });
+
+let clients = [];
+
+server.on('connection', (socket) => {
+    clients.push(socket);
+
+    socket.on('message', (message) => {
+        clients.forEach(client => {
+            if (client !== socket && client.readyState === WebSocket.OPEN) {
+                client.send(message);
+            }
+        });
+    });
+
+    socket.on('close', () => {
+        clients = clients.filter(client => client !== socket);
+    });
+});
+
+console.log('WebSocket server started on ws://localhost:8080');
+
+
+const cells = document.querySelectorAll('.cell');
+let currentPlayer = 'X';
+
+cells.forEach(cell => {
+  cell.addEventListener('click', () => {
+    if (cell.textContent === '') {
+      cell.textContent = currentPlayer;
+      checkWinner();
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
   });
-  
-  const cells = document.querySelectorAll('.cell');
-  let currentPlayer = 'X';
-  let boardState = Array(9).fill(null);
-  
-  cells.forEach(cell => {
-    cell.addEventListener('click', () => {
-      const index = cell.getAttribute('data-index');
-      if (!boardState[index]) {
-        boardState[index] = currentPlayer;
-        cell.textContent = currentPlayer;
-        if (checkWin(currentPlayer)) {
-          alert(`${currentPlayer} wins!`);
-          resetGame();
-        } else if (boardState.every(cell => cell !== null)) {
-          alert("Tie!");
-          resetGame();
-        } else {
-          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        }
-      }
-    });
+});
+
+function checkWinner() {
+  const winPatterns = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  winPatterns.forEach(pattern => {
+    const [a, b, c] = pattern;
+    if (cells[a].textContent && cells[a].textContent === cells[b].textContent && cells[a].textContent === cells[c].textContent) {
+      alert(`Player ${cells[a].textContent} wins!`);
+      resetBoard();
+    }
   });
-  
-  document.getElementById('reset-button').addEventListener('click', resetGame);
-  
-  function resetGame() {
-    boardState.fill(null);
-    cells.forEach(cell => {
-      cell.textContent = '';
-    });
-    currentPlayer = 'X';
-  }
-  
-  function checkWin(player) {
-    const winningCombinations = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-    return winningCombinations.some(combination => {
-      return combination.every(index => boardState[index] === player);
-    });
-  }
+}
+
+function resetBoard() {
+  cells.forEach(cell => cell.textContent = '');
+}
