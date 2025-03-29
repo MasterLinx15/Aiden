@@ -4,7 +4,6 @@ const mineCount = 20;
 let board = [];
 let revealedCount = 0;
 
-// Create the game board
 function createBoard() {
   const boardElement = document.getElementById("game-board");
   boardElement.innerHTML = "";
@@ -30,7 +29,6 @@ function createBoard() {
   }
 }
 
-// Place mines randomly
 function placeMines() {
   let minesPlaced = 0;
 
@@ -45,7 +43,6 @@ function placeMines() {
   }
 }
 
-// Handle left click
 function handleLeftClick(e) {
   const row = parseInt(e.target.dataset.row);
   const col = parseInt(e.target.dataset.col);
@@ -55,7 +52,6 @@ function handleLeftClick(e) {
   revealCell(row, col);
 }
 
-// Handle right click (place flag)
 function handleRightClick(e) {
   e.preventDefault();
   const row = parseInt(e.target.dataset.row);
@@ -68,7 +64,6 @@ function handleRightClick(e) {
   e.target.classList.toggle("flagged", board[row][col].flagged);
 }
 
-// Reveal cell
 function revealCell(row, col) {
   if (row < 0 || col < 0 || row >= boardSize || col >= boardSize) return;
   if (board[row][col].revealed || board[row][col].flagged) return;
@@ -97,7 +92,6 @@ function revealCell(row, col) {
   }
 }
 
-// Count adjacent mines
 function countAdjacentMines(row, col) {
   let count = 0;
 
@@ -115,7 +109,6 @@ function countAdjacentMines(row, col) {
   return count;
 }
 
-// Reveal neighbors
 function revealNeighbors(row, col) {
   for (let i = -1; i <= 1; i++) {
     for (let j = -1; j <= 1; j++) {
