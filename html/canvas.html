@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bouncing Cat</title>
   <style>
+
+#cat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('/images/doge.webp') no-repeat center/cover;
+    border-radius: 50%;
+  }
+
     body {
       margin: 0;
       display: flex;
@@ -42,8 +51,8 @@
 
     let x = Math.random() * (canvas.offsetWidth - cat.offsetWidth);
     let y = Math.random() * (canvas.offsetHeight - cat.offsetHeight);
-    let dx = (Math.random() - 0.5) * 20;
-    let dy = (Math.random() - 0.5) * 20;
+    let dx = (Math.random() - 0.5) * 10;
+    let dy = (Math.random() - 0.5) * 10;
 
     function moveCat() {
       x += dx;
@@ -66,6 +75,7 @@
 
     cat.style.left = `${x}px`;
     cat.style.top = `${y}px`;
+
     moveCat();
   </script>
 </body>
