@@ -8,90 +8,59 @@
 </head>
 
 <body>
-  <button id="button" onclick=countInFizzBuzz()>Count in FizzBuzz</button>
-  <script>
-    if ('WebSocket' in window) {
-      (function () {
-        function refreshCSS() {
-          var sheets = [].slice.call(document.getElementsByTagName("link"));
-          var head = document.getElementsByTagName("head")[0];
-          for (var i = 0; i < sheets.length; ++i) {
-            var elem = sheets[i];
-            var parent = elem.parentElement || head;
-            parent.removeChild(elem);
-            var rel = elem.rel;
-            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-            }
-            parent.appendChild(elem);
-          }
-        }
-        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-        var address = protocol + window.location.host + window.location.pathname + '/ws';
-        var socket = new WebSocket(address);
-        socket.onmessage = function (msg) {
-          if (msg.data == 'reload') window.location.reload();
-          else if (msg.data == 'refreshcss') refreshCSS();
-        };
-        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-          console.log('Live reload enabled.');
-          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-        }
-      })();
-    }
-    else {
-      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-    }
-    // ]]>
-  </script>
+  <button id="button" onclick=countInFizzBuzz(100)>Count in FizzBuzz</button>
 </body>
 
 </html>
 <style>
   button {
-    background-color: #00ff08;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+  background-color: #00ff08; 
+  color: #fff; 
+  border: none; 
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px; 
+  font-family: Arial, sans-serif; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
 
-  button:hover {
-    background-color: #0cb300af;
-  }
+button:hover {
+  background-color: #0cb300af; 
+}
 
-  button:active {
-    background-color: #007f3396;
-  }
+button:active {
+  background-color: #007f3396; 
+}
 
-  button:disabled {
-    background-color: #ff0000;
-    cursor: not-allowed;
-  }
+button:disabled {
+  background-color: #cccccc; 
+  cursor: not-allowed;
+}
 
-  * {
-    text-align: center;
-    text-decoration-thickness: 10;
-  }
+* {
+  text-align: center;
+  text-decoration-thickness: 10;
+}
 </style>
 <script>
-  function countInFizzBuzz(limit) {
-    for (let i = 1; i <= limit; i++) {
-      if (i % 3 === 0 && i % 5 === 0) {
-        alert("FizzBuzz");
-      } else if (i % 3 === 0) {
-        alert("Fizz");
-      } else if (i % 5 === 0) {
-        alert("Buzz");
-      } else {
-        alert(i);
-      }
+function countInFizzBuzz(limit) {
+  const outputContainer = document.body;
+  for (let i = 1; i <= limit; i++) {
+    let result;
+    if (i % 3 === 0 && i % 5 === 0) {
+      result = "FizzBuzz";
+    } else if (i % 3 === 0) {
+      result = "Fizz";
+    } else if (i % 5 === 0) {
+      result = "Buzz";
+    } else {
+      result = i;
     }
-  }
 
+    const paragraph = document.createElement("p");
+    paragraph.textContent = result; 
+    outputContainer.appendChild(paragraph);
+  }
+}
 </script>
