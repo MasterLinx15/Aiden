@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest word in sentence finder</title>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, sequi odit ullam perferendis officiis sit enim
+    laudantium. Quas voluptas impedit temporibus expedita ab at deleniti velit eius magni. Nihil, praesentium!
+</head>
+
+<body>
+    <textarea id="myTextarea" placeholder="TYPE SOMETHING HERE..."></textarea>
+    <button onclick="findTheLongestWordInSentence(sentence)">Submit</button>
+</body>
+
+</html>
+<script>
+    function findTheLongestWordInSentence(sentence) {
+        return sentence.split(' ').reduce((longest, word) =>
+            word.length > longest.length ? word : longest, '');
+    } 
+    const sentence = "lol at them";
+    alert(sentence)
+
+</script>

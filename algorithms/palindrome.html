@@ -8,13 +8,14 @@
 </head>
 
 <body>
-    <textarea name="TYPE HERE" id="textarea" oninput=findPairs()></textarea>
+    <textarea id="myTextarea" placeholder="Type something here..."></textarea>
+  <button onclick="findPairs()">Submit</button>
 </body>
 
 </html>
 <script>
     function findPairs(str) {
-        let pairs = new Array(str.length).fill(null);
+let pairs = new Array(str.length).fill(null);
 
         for (let i = 0; i < str.length; i++) {
             if (parseInt(str[i], 10) + parseInt(str[str.length - i - 1], 10) === str.length) {
