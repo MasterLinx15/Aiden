@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <button>lalalalalu</button>
-</body>
+
 </html>
 <script>
-    function lalalalalu(){
-        const lalalalalu = "lala lalal lalalalalu"
-        
+    function mySplit(str, delimiter = " ") {
+        const listOfSubStrings = [];
+        let currentSubstring = "";
+
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === delimiter) {
+                listOfSubStrings.push(currentSubstring);
+                currentSubstring = "";
+            } else {
+                currentSubstring += str[i];
+            }
+        }
+        if (currentSubstring.length > 0) {
+            listOfSubStrings.push(currentSubstring);
+        }
+
+        console.log(listOfSubStrings);
+        return listOfSubStrings;
     }
+
+    mySplit("lorem ipsum dolor sit amet");
 </script>
