@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest Word in Sentence Finder</title>
+</head>
+
+<body>
+    <textarea id="mytextarea" placeholder="Type something here..."></textarea>
+    <button onclick="findTheLongestWordInSentence()">Submit</button>
+
+    <script>
+        function findTheLongestWordInSentence() {
+
+            const sentence = document.getElementById("mytextarea").value;
+
+
+            if (!sentence.trim()) {
+                alert("Please type something in the textarea! uhahah looool kid got scameddddddd looooooooolll");
+                return;
+            }
+
+            const words = sentence.split(/\s+/);
+            let longestWord = "";
+
+            for (let i = 0; i < words.length; i++) {
+                if (words[i].length > longestWord.length) {
+                    longestWord = words[i];
+                }
+            }
+
+            alert(`The longest word is: "${longestWord.length}, letters long peepeepoopoo🐶"`);
+        }
+    </script>
+</body>
+
+</html>
