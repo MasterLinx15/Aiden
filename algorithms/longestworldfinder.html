@@ -9,16 +9,23 @@
 
 <body>
     <textarea id="mytextarea" placeholder="Type something here..."></textarea>
-    <but ton onclick="findTheLongestWordInSentence()">Submit</button>
+    <button onclick="findTheLongestWordInSentence()">Submit</button>
 
         <script>
-            function findTheLongestWordInSentence() {
+            function findTheLongestWordInSentence(delimiter = " ") {
                 let counter = 0;
+                let currentSubstring = "";
+                const listOfSubStrings = [];
                 const sentence = document.getElementById("mytextarea").value;
                 for (let i = 0; i < sentence.length; i++) {
-                    
+                    if (str[i] === delimiter) {
+                        listOfSubStrings.push(currentSubstring);
+                    } else {
+                        counter++
+                    }
                 }
             }
+            findTheLongestWordInSentence()
         </script>
 </body>
 
