@@ -73,5 +73,6 @@ function updateTime() {
         wordInput.value = "";
         wordInput.disabled = true;
         startButton.disabled = false;
+        return;
     }
 }
