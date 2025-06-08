@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Combinatorics Calculator</title>
+    <title>Valid Parenthesis Combinations</title>
     <script>
-        function combinatorics(n) {
-            if (n === 0) return 1;
-            let num = 1;
-            for (let i = 0; i < n; i++) {
-                num = num * (2 * (2 * i + 1)) / (i + 2);
+        function generateParentheses(n, current = "", open = 0, close = 0, result = []) {
+            if (current.length === n * 2) {
+                result.push(current);
+                return;
             }
-            return Math.round(num);
+            
+            if (open < n) {
+                generateParentheses(n, current + "(", open + 1, close, result);
+            }
+            if (close < open) {
+                generateParentheses(n, current + ")", open, close + 1, result);
+            }
         }
 
         function calculate() {
             const inputElement = document.getElementById("inputN");
             const resultElement = document.getElementById("result");
-
             const n = parseInt(inputElement.value);
-            resultElement.innerText = `Ways to combine ${n} pairs: ` + combinatorics(n);
+
+            if (isNaN(n) || n < 0) {
+                resultElement.innerText = "Please enter a valid non-negative number.";
+                return;
+            }
+
+            let validCombinations = [];
+            generateParentheses(n, "", 0, 0, validCombinations);
+
+            resultElement.innerHTML = `<strong>Total number of combinations:</strong> ${validCombinations.length}
+                                       <br><br><strong>Valid ${n}-pair parentheses combinations:</strong><br>${validCombinations.join("<br>")}`;
         }
     </script>
 </head>
 <body>
-    <h1>Combinatorics Calculator</h1>
+    <h1>Valid Parenthesis Combinations</h1>
     <input type="number" id="inputN" placeholder="Enter a number">
-    <button onclick="calculate()">Calculate</button>
+    <button onclick="calculate()">Generate</button>
     <p id="result"></p>
 </body>
 </html>
