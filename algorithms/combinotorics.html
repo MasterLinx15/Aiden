@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combinatorics Calculator</title>
+    <script>
+        function combinatorics(n) {
+            if (n === 0) return 1;
+            let num = 1;
+            for (let i = 0; i < n; i++) {
+                num = num * (2 * (2 * i + 1)) / (i + 2);
+            }
+            return Math.round(num);
+        }
+
+        function calculate() {
+            const inputElement = document.getElementById("inputN");
+            const resultElement = document.getElementById("result");
+
+            const n = parseInt(inputElement.value);
+            resultElement.innerText = `Ways to combine ${n} pairs: ` + combinatorics(n);
+        }
+    </script>
+</head>
+<body>
+    <h1>Combinatorics Calculator</h1>
+    <input type="number" id="inputN" placeholder="Enter a number">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+</body>
+</html>
