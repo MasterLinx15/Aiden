@@ -9,11 +9,23 @@
 
 <body>
     <textarea id="paragraph"></textarea>
+    <textarea id="word"></textarea>
+    <button onclick="findAllInstancesInTheParagraph()">Do Stuff</button>
 </body>
 
 </html>
 <script>
-    function findAllInstancesInTheParagraph() {
-        
+    function findAllInstancesInTheParagraph(paragraph, word) {
+        let paragraph = document.getElementById("paragraph")
+        let word = document.getElementById("word")
+        let currentLetter = 0;
+        for (let i = 0; i < paragraph.length; i++) {
+            if (paragraph[i] == word[currentLetter]) {
+                currentLetter++;
+                if (word[currentLetter] == word.length()) {
+                    console.log(i);
+                }
+            }
+        }
     }
 </script>
