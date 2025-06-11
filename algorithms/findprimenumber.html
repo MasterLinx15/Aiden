@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>thurshcrumphreylil</title>
 </head>
+
 <body>
-    <button onclick="findPrimeNumbers()">Find Prime Numbers</button>
+    <button onclick="isPrime(prompt('Enter a number to check if it is prime:'))">Find Prime Numbers</button>
     <h1>Prime Number Finder</h1>
     <p>meow meow nyan cats will eat ure nose tonight harharhar</p>
     <script>
-    function findPrimeNumbers() {
-        let primes = [];
-        let limit = prompt("pls limit idiotic monkey");
-        for (let i = 2; i <= limit; i++) {
-            let isPrime = true;
-            for (let j = 2; j <= Math.sqrt(i); j++) {
-                if (i % j == 0) {
-                    isPrime = false;
-                    return;
+        function isPrime(num) {
+            for (let i = 2; i <= num; i++) {
+                let isPrime = true;
+                let num = parseInt(num, 10);
+                for (let j = 2; j <= Math.sqrt(num); j++) {
+                    if (num % j === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    alert("true");
+                    break;
+                } else {
+                    alert("false");
+                    break
                 }
             }
-            if (isPrime) {
-                primes.push(i);
-            }
         }
-        console.log(primes);
-    }
     </script>
 </body>
+
 </html>
