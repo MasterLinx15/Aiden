@@ -12,26 +12,22 @@
     <h1>Prime Number Finder</h1>
     <p>meow meow nyan cats will eat ure nose tonight harharhar</p>
     <script>
-        function isPrime(num) {
-            for (let i = 2; i <= num; i++) {
-                let isPrime = true;
-                let num = parseInt(num, 10);
-                for (let j = 2; j <= Math.sqrt(num); j++) {
-                    if (num % j === 0) {
-                        isPrime = false;
-                        break;
-                    }
-                }
-                if (isPrime) {
-                    alert("true");
-                    break;
-                } else {
-                    alert("false");
-                    break
-                }
+    function isPrime(checkThisNumber) {
+        let num = parseInt(checkThisNumber, 10);
+        if (num == 1 || num == 0) {
+            return undefined;
+        }
+        if (num % 2 === 0) {
+            return false;
+        }
+        for (let j = 2; j <= Math.sqrt(num); j++) {
+            if (num % j === 0) {
+                return false;
             }
         }
-    </script>
+        return true;
+    }
+</script>
 </body>
 
 </html>
