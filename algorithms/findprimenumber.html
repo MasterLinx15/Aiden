@@ -46,14 +46,13 @@
         }
 
         function findSmallestPrimeAfterNumber(number) {
-            let num = parseInt(number, 10);
-            if (isNaN(num)) {
+            if (isNaN(number)) {
                 return null;
             }
-            if (num < 2) {
+            if (number < 2) {
                 return 2;
             }
-            let nextNum = num + 1;
+            let nextNum = number + 1;
             while (!isPrime(nextNum)) {
                 nextNum++;
             }
@@ -62,8 +61,12 @@
 
         function consoleLogStuff() {
             const input = prompt('Enter a number:');
-            const result = findSmallestPrimeAfterNumber(input);
+            const number = Number(input);
+            const startTime = performance.now();
+            const result = findSmallestPrimeAfterNumber(number);
+            const endTime = performance.now();
             console.log(result);
+            console.log(`Time taken: ${(endTime - startTime).toFixed(3)} ms`);
         }
     </script>
 </body>
