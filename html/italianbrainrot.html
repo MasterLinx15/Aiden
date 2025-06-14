@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Italian Brainrot Character Drag Game</title>
@@ -9,6 +10,7 @@
             text-align: center;
             font-family: Arial, sans-serif;
         }
+
         #gameArea {
             width: 600px;
             height: 400px;
@@ -18,25 +20,22 @@
             position: relative;
             overflow: hidden;
         }
+
         .character {
             width: 80px;
             height: 80px;
             position: absolute;
-            top: 150px;
-            left: 260px;
             cursor: grab;
             user-select: none;
-            border-radius: 50%;
-            border: 2px solid #888;
-            background-size: cover;
-            background-position: center;
         }
+
         select {
             font-size: 18px;
             margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
     <h1>Italian Brainrot Character Drag Game</h1>
     <select id="characterSelect">
@@ -47,53 +46,73 @@
         <option value="Chimpanzeenee Bombaneenee">Chimpanzeenee Bombaneenee</option>
     </select>
     <div id="gameArea"></div>
+
     <script>
-        const characterImages = {
-            
-        };
-
-        const gameArea = document.getElementById('gameArea');
-        const select = document.getElementById('characterSelect');
-        let characterDiv = null;
-
-        function createCharacter(name) {
-            if (characterDiv) characterDiv.remove();
-            characterDiv = document.createElement('div');
-            characterDiv.className = 'character';
-            characterDiv.style.backgroundImage = `url('${characterImages[name]}')`;
-            characterDiv.style.left = '260px';
-            characterDiv.style.top = '150px';
-            gameArea.appendChild(characterDiv);
-
-            let offsetX, offsetY, dragging = false;
-
-            characterDiv.onmousedown = function(e) {
-                dragging = true;
-                offsetX = e.clientX - characterDiv.offsetLeft - gameArea.offsetLeft;
-                offsetY = e.clientY - characterDiv.offsetTop - gameArea.offsetTop;
-                characterDiv.style.cursor = 'grabbing';
+        document.addEventListener("DOMContentLoaded", () => {
+            const characterImages = {
+                "Bombardilo Crocodilo": "/images/Bombardino_Crocodilo.webp",
+                "Brr Brr Patabim": "images/Brr Brr Patabim.jpg",
+                "Tralalero Tralala": "images/Tralalero Tralala.jpg",
+                "Tung Tung Tung Sahur": "images/tung tung tung sahur.jpg",
+                "Chimpanzeenee Bombaneenee": "images/chimchim.jpg"
             };
 
-            document.onmousemove = function(e) {
-                if (!dragging) return;
-                let x = e.clientX - gameArea.offsetLeft - offsetX;
-                let y = e.clientY - gameArea.offsetTop - offsetY;
-                x = Math.max(0, Math.min(gameArea.clientWidth - characterDiv.clientWidth, x));
-                y = Math.max(0, Math.min(gameArea.clientHeight - characterDiv.clientHeight, y));
-                characterDiv.style.left = x + 'px';
-                characterDiv.style.top = y + 'px';
-            };
+            const gameArea = document.getElementById("gameArea");
+            const select = document.getElementById("characterSelect");
+            let characterImg = null;
 
-            document.onmouseup = function() {
-                dragging = false;
-                if (characterDiv) characterDiv.style.cursor = 'grab';
-            };
-        }
-        createCharacter(select.value);
+            function createCharacter(name) {
+                if (characterImg) characterImg.remove();
+                characterImg = document.createElement("img");
+                characterImg.src = characterImages[name];
+                characterImg.alt = name;
+                characterImg.className = "character";
+                characterImg.style.width = "80px";
+                characterImg.style.height = "80px";
+                characterImg.style.position = "absolute";
+                characterImg.style.left = "260px";
+                characterImg.style.top = "150px";
+                gameArea.appendChild(characterImg);
 
-        select.onchange = function() {
-            createCharacter(this.value);
-        };
+                let offsetX, offsetY, dragging = false;
+
+                characterImg.onmousedown = function (e) {
+                    e.preventDefault();
+                    dragging = true;
+                    offsetX = e.clientX - characterImg.offsetLeft - gameArea.offsetLeft;
+                    offsetY = e.clientY - characterImg.offsetTop - gameArea.offsetTop;
+                    characterImg.style.cursor = "grabbing";
+                };
+
+                document.onmousemove = function (e) {
+                    if (!dragging) return;
+                    let x = e.clientX - gameArea.offsetLeft - offsetX;
+                    let y = e.clientY - gameArea.offsetTop - offsetY;
+                    x = Math.max(0, Math.min(gameArea.clientWidth - characterImg.clientWidth, x));
+                    y = Math.max(0, Math.min(gameArea.clientHeight - characterImg.clientHeight, y));
+                    characterImg.style.left = x + "px";
+                    characterImg.style.top = y + "px";
+                };
+
+                document.onmouseup = function () {
+                    dragging = false;
+                    if (characterImg) characterImg.style.cursor = "grab";
+                };
+
+                // Ctrl + Click to open image source in a new tab
+                characterImg.addEventListener("click", (e) => {
+                    if (e.ctrlKey) {
+                        window.open(characterImg.src, "_blank");
+                    }
+                });
+            }
+
+            createCharacter(select.value);
+            select.onchange = function () {
+                createCharacter(this.value);
+            };
+        });
     </script>
 </body>
+
 </html>
