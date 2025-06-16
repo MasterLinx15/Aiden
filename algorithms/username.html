@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid Username Checker</title>
+</head>
+
+<body>
+    <h1>Valid Username Checker</h1>
+    <p>This tool checks if a username is valid based on specific criteria.</p>
+</body>
+
+</html>
+<script>
+    function CodelandUsernameValidation(str) {
+        const username = str.trim();
+        const minLength = 4;
+        const maxLength = 25;
+        const validCharacters = /^[a-zA-Z0-9_]+$/;
+
+        if (username.length < minLength || username.length > maxLength || username[0] == '_' || username[username.length] == '_') {
+            return false;
+        }
+        if (!validCharacters.test(username)) {
+            return false;
+        }
+        return true;
+    }
+</script>
