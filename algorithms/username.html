@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="chinese">
 
 <head>
     <meta charset="UTF-8">
@@ -10,20 +10,64 @@
 <body>
     <h1>Valid Username Checker</h1>
     <p>This tool checks if a username is valid based on specific criteria.</p>
+    <button onclick="alert(CodelandUsernameValidation(prompt('Enter a username:')))">Check Username</button>
 </body>
 
 </html>
 <script>
+    // Custom trim
+    function myTrim(str) {
+        let start = 0, end = str.length - 1;
+        while (start < str.length && (str[start] === ' ' || str[start] === '\t' || str[start] === '\n')) start++;
+        while (end >= 0 && (str[end] === ' ' || str[end] === '\t' || str[end] === '\n')) end--;
+        let result = '';
+        for (let i = start; i <= end; i++) result += str[i];
+        return result;
+    }
+
+    function isValidCharacters(str) {
+        for (let i = 0; i < str.length; i++) {
+            let c = str[i];
+            let code = c.charCodeAt(0);
+            if (
+                !(code >= 65 && code <= 90) && // A-Z
+                !(code >= 97 && code <= 122) && // a-z
+                !(code >= 48 && code <= 57) && // 0-9
+                !(c === '_')
+            ) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function startsWithLetter(str) {
+        if (str.length === 0) return false;
+        let code = str[0].charCodeAt(0);
+        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+    }
+
+    function endsWithUnderscore(str) {
+        if (str.length === 0) return false;
+        return str[str.length - 1] === '_';
+    }
+
     function CodelandUsernameValidation(str) {
-        const username = str.trim();
+        const username = myTrim(str);
         const minLength = 4;
         const maxLength = 25;
-        const validCharacters = /^[a-zA-Z0-9_]+$/;
 
-        if (username.length < minLength || username.length > maxLength || username[0] == '_' || username[username.length] == '_') {
+        if (
+            username.length < minLength ||
+            username.length > maxLength ||
+            !startsWithLetter(username)
+        ) {
             return false;
         }
-        if (!validCharacters.test(username)) {
+        if (!isValidCharacters(username)) {
+            return false;
+        }
+        if (endsWithUnderscore(username)) {
             return false;
         }
         return true;
