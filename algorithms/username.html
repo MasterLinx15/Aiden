@@ -13,30 +13,52 @@
 
 </html>
 <script>
+    function isLetter(ch) {
+        for (let i = 0; i < letters.length; i++) {
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            if (ch === letters[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function isNumber(ch) {
+        const numbers = "0123456789";
+        for (let i = 0; i < numbers.length; i++) {
+            if (ch === numbers[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function isUnderscore(ch) {
+        const underscore = "_";
+        return ch === underscore;
+    }
 
     function CodelandUsernameValidation(str) {
         const minLength = 4;
         const maxLength = 25;
 
-        if (
-            str.length < minLength ||
-            str.length > maxLength
-        ) {
+        if (str.length < minLength || str.length > maxLength) {
             return false;
         }
-        const letters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
-        for (let i = 0; i < letters.length; i++){
-            if (str[0] != letters[i]){
+
+        if (!isLetter(str[0])) {
+            return false;
+        }
+
+        if (isUnderscore(str[str.length - 1])) {
+            return false;
+        }
+
+        for (var i = 0; i < str.length; i++) {
+            var ch = str[i];
+            if (!(isLetter(ch) || isNumber(ch) || isUnderscore(ch))) {
                 return false;
             }
         }
+
         return true;
-    }
-    function isLetter(letter) {
-        for (let i = 0; i < letters.length; i++){
-            if (str[letter.index] != letters[i]){
-                return false;
-            }
-        }
     }
 </script>
