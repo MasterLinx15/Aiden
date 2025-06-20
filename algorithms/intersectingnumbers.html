@@ -5,31 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<button onclick="getIntersectingNumbers('17,90,43,4,6225,656,6,,42,42,,64,,4,', '2,3,4,5,6,7,8,90,3,43,43,43,43,43,')">chi like a puppy</button>
 </html>
 <script>
 function getIntersectingNumbers(set1, set2) {
-    function manualSplit(str) {
-        let result = [];
-        let current = '';
-        result = str.split(',').map(s => s.trim()).filter(s => s !== '');
-        let start = 0, end = current.length - 1;
-        while (start <= end && current[start] === ' ') start++;
-        while (end >= start && current[end] === ' ') end--;
-        for (let j = start; j <= end; j++) trimmed += current[j];
-        if (trimmed !== '') result.push(trimmed);
-        return result;
-    }
-    const arr1 = manualSplit(set1);
-    const arr2 = manualSplit(set2);
+    const arr1 = set1.split(',').map(s => s.trim()).filter(s => s !== '');
+    const arr2 = set2.split(',').map(s => s.trim()).filter(s => s !== '');
 
     const setA = new Set(arr1);
-    set1 = "1, 2, 3, 4, 5";
-    set2 = "3, 4, 5, 6, 7";
+
     const intersection = arr2.filter(num => setA.has(num));
 
     return intersection;
-    const result = intersection;
-    console.log(intersection);
 
+     console.log(intersection);
 }
 </script>
