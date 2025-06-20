@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getIntersectingNumbers()"></button>
+</body>
+</html>
+<script>
+function getIntersectingNumbers(set1, set2) {
+    function manualSplit(str) {
+        let result = [];
+        let current = '';
+        result = str.split(',').map(s => s.trim()).filter(s => s !== '');
+        let start = 0, end = current.length - 1;
+        while (start <= end && current[start] === ' ') start++;
+        while (end >= start && current[end] === ' ') end--;
+        for (let j = start; j <= end; j++) trimmed += current[j];
+        if (trimmed !== '') result.push(trimmed);
+        return result;
+    }
+    const arr1 = manualSplit(set1);
+    const arr2 = manualSplit(set2);
+
+    const setA = new Set(arr1);
+    set1 = "1, 2, 3, 4, 5";
+    set2 = "3, 4, 5, 6, 7";
+    const intersection = arr2.filter(num => setA.has(num));
+
+    return intersection;
+}
+</script>
