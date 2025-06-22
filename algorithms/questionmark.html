@@ -19,8 +19,9 @@
         return false;
     }
         function findquestionmarksInListThingymijig(str) {
+            
         for (let i = 0; i < str.length; i++){
-            if (!isNumber(n)){
+            if (isNumber(i) == true){
                 if (str[i+1] == "?" && str[i+2] == "?" && str[i+3] == "?" && str[i+4] + str[i] == 10){
                     return true;
                 }
