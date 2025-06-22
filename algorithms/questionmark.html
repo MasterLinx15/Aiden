@@ -9,8 +9,24 @@
 
 </html>
 <script>
-    function findquestionmarksInListThingymijig(arr1, arr2) {
-        const list1 = [arr1];
-        const list2 = [arr2];
+        function isNumber(ch) {
+        const numbers = "0123456789";
+        for (let i = 0; i < numbers.length; i++) {
+            if (ch === numbers[i]) {
+                return true;
+            }
+        }
+        return false;
     }
+        function findquestionmarksInListThingymijig(str) {
+        for (let i = 0; i < str.length; i++){
+            if (!isNumber(n)){
+                if (str[i+1] == "?" && str[i+2] == "?" && str[i+3] == "?" && str[i+4] + str[i] == 10){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+console.log(findquestionmarksInListThingymijig(prompt("Wat da str yall' wanna tes' kiddo?")))
 </script>
