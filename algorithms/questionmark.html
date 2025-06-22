@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="device-width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
     <title>what the... the top of the page!!!!!!!!!!!!!!!</title>
 </head>
 
@@ -21,13 +21,14 @@
         function findquestionmarksInListThingymijig(str) {
             
         for (let i = 0; i < str.length; i++){
-            if (isNumber(i) == true){
+            if (isNumber(str[i]) == true){
+                console.log(str[i+1] == "?")
                 if (str[i+1] == "?" && str[i+2] == "?" && str[i+3] == "?" && str[i+4] + str[i] == 10){
                     return true;
                 }
             }
         }
-        return false;
+        return false;   
     }
 console.log(findquestionmarksInListThingymijig(prompt("Wat da str yall' wanna tes' kiddo?")))
 </script>
