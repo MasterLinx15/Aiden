@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest Word Finder</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    function isAppropriateCharacter(ch) {
+        for (let i = 0; i < letters.length; i++) {
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            if (ch == letters[i]) {
+                return true;
+            }
+        const numbers = "0123456789";
+        for (let i = 0; i < numbers.length; i++) {
+            if (ch == numbers[i]) {
+                return true;
+            }
+        }
+        }
+        return false;
+    }
+    function LongestWord(sen){
+        let currentLetter = null;
+        let currentWord = [];
+        let LongestWord = null;
+        for (let i = 0; i < sen.length; i++){
+            if (isAppropriateCharacter(sen[i]) == true){
+                let currentLetter = sen[i]
+            }
+        }
+    }
+</script>
+<script>
+    function test1(){
+        if (LongestWord("@!1234" != "")){
+            console.assert("cap");
+        } 
+    }
+        function test2(){
+        if (LongestWord("    " != "")){
+            console.assert("cap");  
+        } 
+    }
+        function test3(){
+        if (LongestWord(".!!" != "")){
+            console.assert("cap");
+        } 
+    }
+        function test4(){
+        if (LongestWord("5!ogyug har" != "ogyug")){
+            console.assert("cap");
+        } 
+    }
+        function test5(){
+        if (LongestWord("chimpy monkey" != "")){
+            console.assert("cap");
+        } 
+    }
+</script>
