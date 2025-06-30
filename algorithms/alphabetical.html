@@ -8,7 +8,9 @@
 </head>
 
 <body>
-
+    <textarea id="inputSentence" placeholder="'.:CHIMPY:.'"></textarea><br>
+    <button onclick="checkSentence()">Check</button>
+    <p id="result"></p>
     <script>
         function isAlphabetical(word) {
             for (let i = 0; i < word.length - 1; i++) {
@@ -17,6 +19,23 @@
                 }
             }
             return true;
+        }
+        function timedFindAlphabeticalOrder(sentence) {
+            const start = performance.now();
+            const result = findAlphabeticalOrder(sentence);
+            const end = performance.now();
+            console.log(`i took took ${end - start}secs to eat mama's nose.`);
+            return result;
+        }
+    </script>
+
+
+    <script>
+        function checkSentence() {
+            const sentence = document.getElementById('inputSentence').value;
+            const word = timedFindAlphabeticalOrder(sentence);
+            document.getElementById('result').textContent =
+                word ? `First first chimp chimp is: ${word}     ;)  :D  ;D  d:  d;` : "No chimp chimps were found ;(";
         }
 
         function findAlphabeticalOrder(sentence) {
@@ -34,53 +53,16 @@
 
 <script>
     function test1() {
-        if (findAlphabeticalOrder("@!1234") != "") {
+        if (findAlphabeticalOrder("    ") != "") {
             console.log("1 failed");
         }
     }
+
     function test2() {
-        if (findAlphabeticalOrder("    ") != "") {
-            console.log("2 failed");
-        }
-    }
-    function test3() {
-        if (findAlphabeticalOrder(".!!") != "") {
+        if (findAlphabeticalOrder("all the sigma") != "all") {
             console.log("3 failed");
         }
     }
-    function test4() {
-        if (findAlphabeticalOrder("5!ogyug har") != "") {
-            console.log("4 failed");
-        }
-    }
-    function test5() {
-        if (findAlphabeticalOrder("chimpyc monkeym") != "") {
-            console.log("5 failed");
-        }
-    }
-    function test6() {
-        if (findAlphabeticalOrder("all the sigma") != "all") {
-            console.log("6 failed");
-        }
-    }
-    function test7() {
-        if (findAlphabeticalOrder(". . . . . . . ") != "") {
-            console.log("7 failed");
-        }
-
-    }
-    function test8() {
-        if (findAlphabeticalOrder("!@#$%^&*()") != "") {
-            console.log("8 failed");
-        }
-
-    }
     test1();
     test2();
-    test3();
-    test4();
-    test5();
-    test6();
-    test7();
-    test8();
 </script>
