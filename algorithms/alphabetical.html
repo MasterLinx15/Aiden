@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chimphry diaperbrains</title>
+</head>
+
+<body>
+
+    <script>
+        function isAlphabetical(word) {
+            for (let i = 0; i < word.length - 1; i++) {
+                if (word[i].toLowerCase() > word[i + 1].toLowerCase()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function findAlphabeticalOrder(sentence) {
+            const splitSentence = sentence.split(" ");
+            for (const word of splitSentence) {
+                if (isAlphabetical(word)) {
+                    return word;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+<script>
+    function test1() {
+        if (findAlphabeticalOrder("@!1234") != "") {
+            console.log("1 failed");
+        }
+    }
+    function test2() {
+        if (findAlphabeticalOrder("    ") != "") {
+            console.log("2 failed");
+        }
+    }
+    function test3() {
+        if (findAlphabeticalOrder(".!!") != "") {
+            console.log("3 failed");
+        }
+    }
+    function test4() {
+        if (findAlphabeticalOrder("5!ogyug har") != "") {
+            console.log("4 failed");
+        }
+    }
+    function test5() {
+        if (findAlphabeticalOrder("chimpyc monkeym") != "") {
+            console.log("5 failed");
+        }
+    }
+    function test6() {
+        if (findAlphabeticalOrder("all the sigma") != "all") {
+            console.log("6 failed");
+        }
+    }
+    function test7() {
+        if (findAlphabeticalOrder(". . . . . . . ") != "") {
+            console.log("7 failed");
+        }
+
+    }
+    function test8() {
+        if (findAlphabeticalOrder("!@#$%^&*()") != "") {
+            console.log("8 failed");
+        }
+
+    }
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
+    test8();
+</script>
