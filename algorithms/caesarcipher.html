@@ -4,46 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Caesar Cipher</title>
 </head>
 
 <body>
     <h1>Caesar Cipher</h1>
-    <textarea id="CaesarThingNeededToBeDeciphered">abcdefghijklmnopqrstuvwxyz</textarea>
+    <textarea id="CaesarThingNeededToBeDeciphered" rows="4" cols="40">abcdefghijklmnopqrstuvwxyz</textarea><br>
+    <button onclick="caesarCipherEncodeButton()">Encode</button>
+    <button onclick="caesarCipherDecodeButton()">Decode</button>
     <script>
-    function caesarCipherDecoder(text, shift) {
-        let result = "";
-        const alphabet = "abcdefghijklmnopqrstuvwxyz";
-        for (let i = 0; i < text.length; i++) {
-            let c = text[i];
-            let lowerC = c.toLowerCase();
-            let found = false;
-            for (let j = 0; j < 26; j++) {
-                if (lowerC === alphabet[j]) {
-                    let idx = (j + shift) % 26;
-                    if (idx < 0) idx += 26;
-                    let newChar = alphabet[idx];
-                    if (c === c.toUpperCase()) {
-                        newChar = newChar.toUpperCase();
+        function caesarCipher(text, shift) {
+            let result = "";
+            const alphabet = "abcdefghijklmnopqrstuvwxyz";
+            for (let i = 0; i < text.length; i++) {
+                let c = text[i];
+                let lowerC = c.toLowerCase();
+                let found = false;
+                for (let j = 0; j < 26; j++) {
+                    if (lowerC === alphabet[j]) {
+                        let idx = (j + shift) % 26;
+                        if (idx < 0) idx += 26;
+                        let newChar = alphabet[idx];
+                        if (c === c.toUpperCase()) {
+                            newChar = newChar.toUpperCase();
+                        }
+                        c = newChar;
+                        found = true;
+                        break;
                     }
-                    c = newChar;
-                    found = true;
-                    break;
                 }
+                result += c;
             }
-            result += c;
+            return result;
         }
-        return result;
-    }
 
-        function caesarCipherDecoderButton() {
-            const text = document.getElementById('CaesarThingNeededToBeDeciphered').value;
-            const shift = 3; // You can change the shift value as needed
-            const result = caesarCipherDecoder(text, shift);
+        function caesarCipherEncodeButton() {
+            const para = document.getElementById('CaesarThingNeededToBeDeciphered').value;
+            const result = caesarCipher(para, 3);
+            document.getElementById('CaesarThingNeededToBeDeciphered').value = result;
+        }
+
+        // Add dropdown for shift selection
+        const textarea = document.getElementById('CaesarThingNeededToBeDeciphered');
+        const shiftDropdown = document.createElement('select');
+        shiftDropdown.id = 'caesarShiftSelect';
+        for (let i = -25; i <= 25; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            if (i === 3) option.selected = true;
+            shiftDropdown.appendChild(option);
+        }
+        textarea.parentNode.insertBefore(shiftDropdown, textarea.nextSibling);
+
+        function getSelectedShift() {
+            return parseInt(document.getElementById('caesarShiftSelect').value, 10);
+        }
+
+        function caesarCipherEncodeButton() {
+            const para = document.getElementById('CaesarThingNeededToBeDeciphered').value;
+            const shift = getSelectedShift();
+            const result = caesarCipher(para, shift);
+            document.getElementById('CaesarThingNeededToBeDeciphered').value = result;
+        }
+
+        function caesarCipherDecodeButton() {
+            const para = document.getElementById('CaesarThingNeededToBeDeciphered').value;
+            const shift = getSelectedShift();
+            const result = caesarCipher(para, -shift);
             document.getElementById('CaesarThingNeededToBeDeciphered').value = result;
         }
     </script>
-    <button onclick="caesarCipherDecoderButton()">!CLICK ME NOW!</button>
+    <script>
+        console.assert(caesarCipher("abc", 3) == "def", 'Test 1 failed');
+        console.assert(caesarCipher("xyz", 3) == "abc", 'Test 2 failed');
+        console.assert(caesarCipher("def", -3) == "abc", 'Test 3 failed');
+        console.assert(caesarCipher("AbC", 3) == "DeF", 'Test 4 failed');
+        console.assert(caesarCipher("Khoor, Zruog!", -3) == "Hello, World!", 'Test 5 failed');
+        console.assert(caesarCipher("123!?", 3) == "123!?", 'Test 6 failed');
+    </script>
 </body>
 
 </html>
