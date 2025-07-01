@@ -21,11 +21,11 @@
                 let lowerC = c.toLowerCase();
                 let found = false;
                 for (let j = 0; j < 26; j++) {
-                    if (lowerC === alphabet[j]) {
+                    if (lowerC == alphabet[j]) {
                         let idx = (j + shift) % 26;
                         if (idx < 0) idx += 26;
                         let newChar = alphabet[idx];
-                        if (c === c.toUpperCase()) {
+                        if (c == c.toUpperCase()) {
                             newChar = newChar.toUpperCase();
                         }
                         c = newChar;
