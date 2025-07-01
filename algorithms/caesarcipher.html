@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Caesar Cipher</h1>
-    <textarea></textarea>
+    <textarea id="CaesarThingNeededToBeDeciphered">abcdefghijklmnopqrstuvwxyz</textarea>
+    <button onclick="caesarCipherDecoder()">!CLICK ME NOW!</button>
+    <script>
+        function caesarCipherDecoder(text, shift) {
+            let currentLetter  = "";
+            for (let i = 0; i < text.length; i++){
+                currentLetter = text[i];
+            }
+            }
+    </script>
 </body>
+
 </html>
