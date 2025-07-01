@@ -10,15 +10,40 @@
 <body>
     <h1>Caesar Cipher</h1>
     <textarea id="CaesarThingNeededToBeDeciphered">abcdefghijklmnopqrstuvwxyz</textarea>
-    <button onclick="caesarCipherDecoder()">!CLICK ME NOW!</button>
     <script>
-        function caesarCipherDecoder(text, shift) {
-            let currentLetter  = "";
-            for (let i = 0; i < text.length; i++){
-                currentLetter = text[i];
+    function caesarCipherDecoder(text, shift) {
+        let result = "";
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+        for (let i = 0; i < text.length; i++) {
+            let c = text[i];
+            let lowerC = c.toLowerCase();
+            let found = false;
+            for (let j = 0; j < 26; j++) {
+                if (lowerC === alphabet[j]) {
+                    let idx = (j + shift) % 26;
+                    if (idx < 0) idx += 26;
+                    let newChar = alphabet[idx];
+                    if (c === c.toUpperCase()) {
+                        newChar = newChar.toUpperCase();
+                    }
+                    c = newChar;
+                    found = true;
+                    break;
+                }
             }
-            }
+            result += c;
+        }
+        return result;
+    }
+
+        function caesarCipherDecoderButton() {
+            const text = document.getElementById('CaesarThingNeededToBeDeciphered').value;
+            const shift = 3; // You can change the shift value as needed
+            const result = caesarCipherDecoder(text, shift);
+            document.getElementById('CaesarThingNeededToBeDeciphered').value = result;
+        }
     </script>
+    <button onclick="caesarCipherDecoderButton()">!CLICK ME NOW!</button>
 </body>
 
 </html>
