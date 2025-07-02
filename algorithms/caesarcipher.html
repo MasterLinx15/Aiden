@@ -22,7 +22,6 @@
             for (let i = 0; i < text.length; i++) {
                 let c = text[i]; // Current character
                 let lowerC = c.toLowerCase(); // Lowercase version for comparison
-                let found = false; // Flag to check if character is a letter
 
                 // Loop through the alphabet to find a match for the current character
                 for (let j = 0; j < 26; j++) {
@@ -38,7 +37,6 @@
                             newChar = newChar.toUpperCase();
                         }
                         c = newChar; // Replace the character with the shifted one
-                        found = true;
                         break; // Exit the alphabet loop once matched
                     }
                 }
