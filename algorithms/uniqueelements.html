@@ -6,18 +6,20 @@
     <title>Unique Elements Finder</title>
 </head>
 <body>
-    <button>UTF-8 Me-</button>
     <script>
-        function findAllUniqueEmements(list1, list2){
+        function findAllUniqueEmements(){
+            let list1 = [32321809];
+            let list2 = [42938749];
             for (let i = 0; i < list1.length; i++){
                 for (let j = 0; j < list2.length; j++){
                     if (i != j){
-                        console.log(i);
-                        console.log(j);
+                        console.log(list1[i]);
+                        console.log(list2[j]);
                     }
                 }
             }
         }
     </script>
+    <button onclick="findAllUniqueEmements()">UTF-8 Me-</button>
 </body>
 </html>
