@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unique Elements Finder</title>
 </head>
-<body>
-    <script>
-        function findAllUniqueEmements(){
-            let list1 = [32321809];
-            let list2 = [42938749];
-            for (let i = 0; i < list1.length; i++){
-                for (let j = 0; j < list2.length; j++){
-                    if (i != j){
-                        console.log(list1[i]);
-                        console.log(list2[j]);
-                    }
+<script>
+        let listOfUniques = [];
+        let char = null;
+        function run() {
+            let arr1 = [324, 5, 345, 45, 34, 5, 43];
+            let arr2 = [4, 3, 63, 45, 6, 63, 6, 643];
+            findAllUniqueEmements(arr1, arr2)
+        }
+        function findAllUniqueEmements(list1, list2) {
+            let listOfUniques = [];
+            for (let i = 0; i < list1.length; i++) {
+                if (!isUniqueToJArray(char, list2)) {
+
                 }
             }
         }
+        function isUniqueToJArray(list2) {
+            let j = 0;
+            char = j;
+            for (j = char; j < list2.length; j++) {
+                if (item == i) {
+                    return false;
+                }
+                return true;
+            }
+        }
     </script>
-    <button onclick="findAllUniqueEmements()">UTF-8 Me-</button>
+    <button onclick="run()">UTF-8</button>
 </body>
+
 </html>
