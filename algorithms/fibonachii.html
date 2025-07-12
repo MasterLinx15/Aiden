@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="POVLOL21">
     <title>Fibonachii Finder</title>
 </head>
 <body>
+    <button onclick="fibonachii(prompt('wuza numa bloski'))">UTF-8</button>
     <script>
         function fibonachii(num) {
-            
+            let currentFib = null;
+            let minus1 = 1;
+            let minus2 = 0;
+            if (num = 1) {
+                return 0;
+            } else if (i = 2) {
+                return 1;
+            }
+            for (let i = 3; i < num; i++) {
+                currentFib = minus1 + minus2;
+                minus2 = minus1;
+                minus1 = currentFib;
+            }
+            return currentFib;
         }
     </script>
 </body>
