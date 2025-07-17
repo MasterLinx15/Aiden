@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><Label>Largest Prime Factor</Label></title>
 </head>
 <body>
     <script>
@@ -23,13 +23,21 @@
             }
             function largestPrimeFactor(num) {
                 for (let i = num; i > 0; i--) {
+                    if (num % 10000 == 0) {
+                        console.log("Still Working")
+                    }
                     if (num % i == 0 && isPrime(i)) {
-                        console.log("The greatest prime factor is ", i);
-                        return true;
+                        console.log(i);
+                        return i;
                     }
                 }
             }
-            largestPrimeFactor(600851475143);
+    </script>
+    <script> 
+        console.assert(largestPrimeFactor(5) == 5, "1 failed");
+        console.assert(largestPrimeFactor(7) == 7, "2 failed");
+        console.assert(largestPrimeFactor(12) == 3, "3 failed");
+        console.assert(largestPrimeFactor(13195) == 29, "4 failed");
     </script>
 </body>
 </html>
