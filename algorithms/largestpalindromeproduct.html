@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            function findPairs(check) {
+                    let pairs = new Array(check.length).fill(null);
+
+                    for (let i = 0; i < check.length; i++) {
+                        if (parseInt(check[i], 10) + parseInt(check[check.length - i - 1], 10) === check.length) {
+                            pairs[i] = [check[i], check[check.length - i - 1]];
+                        }
+                    }
+
+                    return pairs.filter(pair => pair !== null);
+                }
+                function largestPalindromeProduct() {
+                    for (let i = 999; i > 0; i--) {
+                        for (let j = 999; j > 0; j--) {
+                            
+                        }
+                    }
+                }
+    </script>
+</body>
+</html>
