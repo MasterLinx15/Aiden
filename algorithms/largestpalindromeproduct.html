@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Largest Palindrome Product</title>
 </head>
 <body>
     <script>
@@ -21,10 +21,13 @@
                 function largestPalindromeProduct() {
                     for (let i = 999; i > 0; i--) {
                         for (let j = 999; j > 0; j--) {
-                            
+                            if (findPairs(i*j) == true) {
+                                return i*j;
+                            }
                         }
                     }
                 }
+                largestPalindromeProduct();
     </script>
 </body>
 </html>
