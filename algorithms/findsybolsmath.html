@@ -9,19 +9,18 @@
     <script>
         function findMathamaticalSymbols() {
             let mathSymbols = ["+", "-", "/", "*"];
-            for (let i = 0; i < mathSymbols.length; i++) {
-                for (let j = 0; j < mathSymbols.length; j++) {
-                    for (let k = 0; k < mathSymbols.length; k++) {
-                        if (eval("5" + mathSymbols[i] + "5" + mathSymbols[j] + "5" + mathSymbols[k] + "5" == "100")) {
-                            console.log(i);
-                            console.log(j);
-                            console.log(k);
-                            return;
+            for (let i = 0; i <= mathSymbols.length; i++) {
+                for (let j = 0; j <= mathSymbols.length; j++) {
+                    for (let k = 0; k <= mathSymbols.length; k++) {
+                        let expression = "5" + mathSymbols[i] + "5" + mathSymbols[j] + "5 == 15";
+                        if (eval(expression) == true  ) {
+                            return expression;
                         }
                     }
                 }
             }
         }
+        //console.assert(findMathamaticalSymbols() == "5"  "5" + mathSymbols[j] + "5 == 15", "failed");
         findMathamaticalSymbols();
     </script>
 </body>
