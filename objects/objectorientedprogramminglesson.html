@@ -7,12 +7,18 @@
 </head>
 <body>
     <script>
-        const cat = {
+        let cat = {
             "name":"Whiskers",
             "legs": 4,
-            "tails":1,
-            "enemies":["Water", Dogs]
+            "tails":-3,
+            "enemies":["Water", "Dogs"]
         };
+        if (cat.tails <= 1) {
+            console.log("Cat needs more tails");
+            console.log(cat.tails);
+            cat.tails++;
+            console.log(cat.tails);
+        }
     </script>
 </body>
 </html>
