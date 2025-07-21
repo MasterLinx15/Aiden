@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <script>
         // (i * j) === 21
@@ -14,37 +13,26 @@
         // (j * l) === 9
         // (k - l) === 5
         function fillTheBoxes() {
-            // Loop for i from 0 to 20 in steps of 0.1
-            for (let i = 0; i <= 20; i = i + 0.1) {
-                let j = 0; // Start j at 0
-                // Loop for j from 0 to 20 in steps of 0.1
-                while (j <= 20) {
-                    let k = 0; // Start k at 0
-                    // Loop for k from 0 to 20 in steps of 0.1
-                    while (k <= 20) {
-                        let l = 0; // Start l at 0
-                        // Loop for l from 0 to 20 in steps of 0.1
-                        while (l <= 20) {
-                            // Check if all four equations are satisfied
+            for (let i = 0; i <= 20; i = i + 0.1) {let j = 0;
+                for (let j = 0; j <= 20; j = j+0.1) {
+                    for (let k = 0; k <= 20; k = k + 0.1) {
+                        for (let l = 0; l <= 20; l = l + 0.1) {
                             if (
                                 (i * j) === 21 &&
                                 (i + k) === 8 &&
                                 (j * l) === 9 &&
                                 (k - l) === 5
                             ) {
-                                // If all are true, build a string with the values
-                                let string = i + "\n" + j + "\n" + k + "\n" + l;
+                                let string = i + " " + j + " " + k + " " + l;
                                 console.log(string);
                                 return string;
                             }
-                            l = l + 0.1; // Increment l by 0.1
                         }
-                        k = k + 0.1; // Increment k by 0.1
                     }
-                    j = j + 0.1; // Increment j by 0.1
                 }
             }
-            // If no solution is found, nothing is returned
+            console.log("Nothing Found");
+            return;
         }
         fillTheBoxes();
     </script>
