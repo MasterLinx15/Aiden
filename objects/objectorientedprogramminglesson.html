@@ -9,6 +9,7 @@
 
 <body>
     <script>
+        //dot notation
         let cat = {
             "name": "Whiskers",
             "cat[legs]": 4,
@@ -34,6 +35,7 @@
         }
     </script>
     <script>
+        //bracket notation
         let dog = {
             "name": "Kibble",
             "legs": 4,
@@ -60,10 +62,16 @@
         }
     </script>
     <script>
+        //adding variable values
         dog[legs] = math.PI;
         let Aisha = "cute";
         dog[name] = Aisha;
         dog.Worship = "Wee Hee";
+    </script>
+    <script>
+        //deleting and trying to access properties from the object
+        delete dog.legs;
+        console.log(dog.legs);
     </script>
 </body>
 
