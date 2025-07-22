@@ -12,7 +12,7 @@
         //dot notation
         let cat = {
             "name": "Whiskers",
-            "cat[legs]": 4,
+            "legs": 4,
             "tails": -3,
             "heads": 1,
             "enemies": ["Water", "Dogs"]
@@ -23,13 +23,13 @@
             cat.tails++;
             console.log(cat.tails);
         }
-        if (cat.cat[legs] < 2347584732) {
+        if (cat["legs"] < 2347584732) {
             cat.name = "Little Shob Goo Gab Goo Lab";
-            cat.cat[legs] = 2347584732;
+            cat["legs"] = 2347584732;
             cat.tails = 417365728489572409856248795;
             cat.heads = 327498734923685678234654698629854365287347091739847;
             console.log("Your Cat Is Now Named " + cat.name);
-            console.log("Your Cat Has Grew " + cat.cat[legs] + " Legs");
+            console.log("Your Cat Has Grew " + cat["legs"] + " Legs");
             console.log("Your Cat Has Grew " + cat.tails + " Tails");
             console.log("Your Cat Has Grew " + cat.heads + " Heads");
         }
@@ -42,30 +42,30 @@
             "tails": -3,
             "heads": 1,
             "enemies": ["bees", "cats"],
-            "povlol21": cat
+            "povlol21": "cat"
         };
-        if (dog[tails] <= 1) {
+        if (dog["povlol21"] <= 1) {
             console.log("Dog needs more tails");
-            console.log(dog[tails]);
-            dog[tails]++;
-            console.log(dog[tails]);
+            console.log(dog["tails"]);
+            dog["tails"]++;
+            console.log(dog["tails"]);
         }
-        if (dog.cat[legs] < 2347584732) {
-            dog[name] = "Little Shob Goo Gab Goo Lab";
-            dog[legs] = 2347584732;
-            dog[tails] = 417365728489572409856248795;
-            dog[heads] = 327498734923685678234654698629854365287347091739847;
-            console.log("Your Dog Is Now Named " + cat[name]);
-            console.log("Your Dog Has Grew " + dog[legs] + " Legs");
-            console.log("Your Dog Has Grew " + dog[tails] + " Tails");
-            console.log("Your Dog Has Grew " + dog[heads] + " Heads");
+        if (dog["legs"] < 2347584732) {
+            dog["name"] = "Little Shob Goo Gab Goo Lab";
+            dog["legs"] = 2347584732;
+            dog["tails"] = 417365728489572409856248795;
+            dog["heads"] = 327498734923685678234654698629854365287347091739847;
+            console.log("Your Dog Is Now Named " + cat["name"]);
+            console.log("Your Dog Has Grew " + dog["legs"] + " Legs");
+            console.log("Your Dog Has Grew " + dog["tails"] + " Tails");
+            console.log("Your Dog Has Grew " + dog["heads"] + " Heads");
         }
     </script>
     <script>
         //adding variable values
-        dog[legs] = math.PI;
+        dog["legs"] = 3.1415926535;
         let Aisha = "cute";
-        dog[name] = Aisha;
+        dog["name"] = Aisha;
         dog.Worship = "Wee Hee";
     </script>
     <script>
@@ -75,7 +75,15 @@
     </script>
     <script>
         //Using objects for lookup
-        
+        let tails = "tails";
+        let dogsTails = dog[tails];
+        console.log(dogsTails);
+    </script>
+    <script>
+        //dynamically creating properties
+        povlolnewkif = "pewew";
+        dog[povlolnewkif];
+        console.log(dog[povlolnewkif]);
     </script>
 </body>
 
