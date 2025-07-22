@@ -22,7 +22,7 @@
             console.log(cat.tails);
             cat.tails++;
             console.log(cat.tails);
-        }
+        };
         if (cat["legs"] < 2347584732) {
             cat.name = "Little Shob Goo Gab Goo Lab";
             cat["legs"] = 2347584732;
@@ -32,7 +32,7 @@
             console.log("Your Cat Has Grew " + cat["legs"] + " Legs");
             console.log("Your Cat Has Grew " + cat.tails + " Tails");
             console.log("Your Cat Has Grew " + cat.heads + " Heads");
-        }
+        };
     </script>
     <script>
         //bracket notation
@@ -50,7 +50,7 @@
             console.log(dog["tails"]);
             dog["tails"]++;
             console.log(dog["tails"]);
-        }
+        };
         if (dog["legs"] < 2347584732) {
             dog["name"] = "Little Shob Goo Gab Goo Lab";
             dog["legs"] = 2347584732;
@@ -60,7 +60,7 @@
             console.log("Your Dog Has Grew " + dog["legs"] + " Legs");
             console.log("Your Dog Has Grew " + dog["tails"] + " Tails");
             console.log("Your Dog Has Grew " + dog["heads"] + " Heads");
-        }
+        };
     </script>
     <script>
         //adding variable values
@@ -92,8 +92,18 @@
         console.log("does dog have ItatlianBrainrot: " + dog.hasOwnProperty("ItalianBrainrot"));
     </script>
     <script>
-        //ourStorage.desk.drawer
+        let person = {
+            firstName: "Aiden",
+            lastName: "Yip",
+            id: 1134,
+            fullName: function() {
+                let firstName = "AARON THUR IDOOTICE MONCHEY";
+                return this.firstName + " " + this.lastName;
+            }
+        };
+        name = person.fullName();
+        console.log(name);
     </script>
 </body>
 
-</html> 
+</html>
