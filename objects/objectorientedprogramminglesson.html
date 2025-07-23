@@ -118,17 +118,18 @@
         console.log(myPuppy.getPuppyInfo());
     </script> -->
     <script>
-        function circle (radius) {
+        function Circle (radius) {
             this.radius = radius;
-            this.circumference = function() {
+            this.getCircumference = function() {
                 return 2 * Math.PI * this.radius;
             };
-            this.area = function() {
+            this.getArea = function() {
                 return Math.PI * this.radius * this.radius;
             };
         }
-        console.log(new circle(5).area());
-        console.log(new circle(5).circumference());
+        let circle1 = new Circle(5);
+        console.log(circle1.getArea());
+        console.log(circle1.getCircumference());
     </script>
 </body>
 
