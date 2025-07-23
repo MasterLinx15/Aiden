@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Employee {
+        constructor(id, name, salary, bonus) {
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+            this.bonus = bonus;
+        }
+
+        getTotalSalary() {
+            return this.salary + this.bonus;
+        }
+
+        getID() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getSummary() {
+            return `${this.getName()} (ID: ${this.getID()}) - Total Salary: $${this.getTotalSalary()}`;
+        }
+    }
+
+    let employees = [
+        new Employee(11340, "Mommy", 944395, 5000),
+        new Employee(67676, "Error guy", 60000, 7000),
+        new Employee(69696, "hahaijusthackedyou", 55000, 4500),
+        new Employee(42344, "povlol21", 62000, 8000),
+        new Employee(99999, "kamerondoggydoodoo", 48000, 4000)
+    ];
+
+    employees.forEach(emp => {
+        console.log(emp.getSummary());
+    });
+    </script>
+</body>
+</html>
