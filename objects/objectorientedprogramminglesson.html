@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <script>
+<!--     <script>
         //dot notation
         let cat = {
             "name": "Whiskers",
@@ -96,13 +96,39 @@
             firstName: "Aiden",
             lastName: "Yip",
             id: 1134,
-            fullName: function() {
-                let firstName = "AARON THUR IDOOTICE MONCHEY";
+            fullName: function () {
+                let firstName = "AARON";
                 return this.firstName + " " + this.lastName;
             }
         };
         name = person.fullName();
         console.log(name);
+    </script>
+    <script>
+        //Javascript Constructor
+        function cutePuppy(name, color, food) {
+            this.name = name;
+            this.color = color;
+            this.food = food;
+            this.getPuppyInfo = function () {
+                return `${this.name} ${this.color} ${this.food}`;
+            };
+        }
+        let myPuppy = new cutePuppy(Aisha, Brown, Chicken);
+        console.log(myPuppy.getPuppyInfo());
+    </script> -->
+    <script>
+        function circle (radius) {
+            this.radius = radius;
+            this.circumference = function() {
+                return 2 * Math.PI * this.radius;
+            };
+            this.area = function() {
+                return Math.PI * this.radius * this.radius;
+            };
+        }
+        console.log(new circle(5).area());
+        console.log(new circle(5).circumference());
     </script>
 </body>
 
