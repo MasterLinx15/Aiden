@@ -7,42 +7,21 @@
 </head>
 <body>
     <script>
-    class Employee {
-        constructor(id, name, salary, bonus) {
-            this.id = id;
+        function employee(name, Id, salary, bonus) {
             this.name = name;
+            this.Id = Id;
             this.salary = salary;
             this.bonus = bonus;
+            this.totalSalary = function() {
+                    return salary + bonus;
+            }
         }
-
-        getTotalSalary() {
-            return this.salary + this.bonus;
-        }
-
-        getID() {
-            return this.id;
-        }
-
-        getName() {
-            return this.name;
-        }
-
-        getSummary() {
-            return `${this.getName()} (ID: ${this.getID()}) - Total Salary: $${this.getTotalSalary()}`;
-        }
-    }
-
-    let employees = [
-        new Employee(11340, "Mommy", 944395, 5000),
-        new Employee(67676, "Error guy", 60000, 7000),
-        new Employee(69696, "hahaijusthackedyou", 55000, 4500),
-        new Employee(42344, "povlol21", 62000, 8000),
-        new Employee(99999, "kamerondoggydoodoo", 48000, 4000)
-    ];
-
-    employees.forEach(emp => {
-        console.log(emp.getSummary());
-    });
+        let employee1 = new employee("mommy", 11345, 13, 0).totalSalary();
+        let employee2 = new employee("tatty", 67667, 0, Infinity).totalSalary();
+        let employee3 = new employee("hacker", 12334, 721, 74).totalSalary();
+        console.log(employee1);
+        console.log(employee2);
+        console.log(employee3);
     </script>
 </body>
 </html>
