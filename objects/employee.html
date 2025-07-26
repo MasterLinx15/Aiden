@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Employee</title>
 </head>
 <body>
     <script>
@@ -19,6 +19,13 @@
         let employee1 = new employee("mommy", 11345, 13, 0).totalSalary();
         let employee2 = new employee("tatty", 67667, 0, Infinity).totalSalary();
         let employee3 = new employee("hacker", 12334, 721, 74).totalSalary();
+        let employees = [employee1, employee2, employee3];
+        function sortBySalary() {
+            
+        }
+        function sortByName(arrayEmployee) {
+            employees.sort()
+        }
         console.log(employee1);
         console.log(employee2);
         console.log(employee3);
