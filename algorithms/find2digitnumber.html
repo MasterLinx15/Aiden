@@ -14,12 +14,16 @@
                 for (let j = 0; j < 9; j++) {
                     let normal = Number(i*10) + Number(j);
                     let reversed = Number(j * 10) + Number(i);
-                    if (Number(normal) - 18 == Number(reversed) * Number(6)) {
-                        
+                    if (Number(normal) - 18 == Number(reversed) && (Number(i) + Number(j)) * Number(6) + Number(4) == Number(normal)) {
+                        return normal;
                     } 
                 }
             }
         }
+        function run() {
+            console.log(findTheTwoDigitNumber());
+        }
+        run();
     </script>
 </body>
 
