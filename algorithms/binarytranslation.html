@@ -10,9 +10,14 @@
 <body>
     <script>
         function decodeBinary(num) {
-            for (let i = 0; i < num.length; i--) {
-
+            let sum = 0;
+            for (let i = num.length; i > 0; i--) {
+                if (num[i] == 1) {
+                    sum = sum + (Number(2) ** i);
+                }
             }
+            console.log(sum);
+            return sum;
         }
     </script>
 </body>
