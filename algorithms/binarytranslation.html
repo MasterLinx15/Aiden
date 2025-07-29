@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binary Transformation (numbers only)/title>
+    <title>Binary Transformation (numbers only)</title>
 </head>
 
 <body>
@@ -12,13 +12,14 @@
         function decodeBinary(num) {
             let sum = 0;
             for (let i = num.length; i > 0; i--) {
-                if (num[i] == 1) {
-                    sum = sum + (Number(2) ** i);
+                if (num[i] == 1) {  
+                    sum = Number(sum) + Math.pow(2, i);
                 }
             }
             console.log(sum);
             return sum;
         }
+        decodeBinary("10");
     </script>
 </body>
 
