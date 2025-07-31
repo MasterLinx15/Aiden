@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Division</title>
+</head>
+
+<body>
+    <script>
+        function longDivide(dividend, divisor) {
+            let quotient = ""
+            let remainder = 0;
+            for (const digit of dividend) {
+                remainder = remainder * 10 + Number(digit);
+                let i = 0;
+                while (remainder >= divisor) {
+                    remainder -= divisor;
+                    i++;
+                }
+                quotient += i;
+            }
+            return quotient, remainder;
+        }
+
+        console.log(longDivide("1234", 5));
+    </script>
+</body>
+
+</html>
