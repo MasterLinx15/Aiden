@@ -11,15 +11,16 @@
     <script>
         function decodeBinary(num) {
             let sum = 0;
-            for (let i = num.length; i > 0; i--) {
-                if (num[i] == 1) {  
-                    sum = Number(sum) + Math.pow(2, i);
+            for (let i = num.length - 1; i >= 0; i--) {
+                if (num[i] === '1') {
+                    sum += Math.pow(2, num.length - 1 - i);
                 }
             }
             console.log(sum);
             return sum;
         }
-        decodeBinary("10");
+
+        decodeBinary("0");
     </script>
 </body>
 
