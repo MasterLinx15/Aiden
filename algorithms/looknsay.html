@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Look n' say sequence</title>
+    <title>Look and say sequence</title>
 </head>
 <body>
     <script>
@@ -11,14 +11,20 @@
 
         }
         function getAmountOfDigits(num) {
+            let count = 0;
             for (let j = 0; j < num.length; j++) {
-                
+                if (String(num)[j] == String(num)[j + i]) {
+                    count++
+                } else if (String(num)[j] != String(num)[j + i]) {
+                    return count;
+                }
             }
+            return count;
         }
         function findNumber(num) {
             let n = num.length;
             for (let i = 0; i < n; i++) {
-
+                
             }
         }
     </script>
