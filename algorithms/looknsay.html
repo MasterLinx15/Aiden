@@ -7,26 +7,25 @@
 </head>
 <body>
     <script>
-        function run() {
-
-        }
-        function getAmountOfDigits(num) {
-            let count = 0;
-            for (let j = 0; j < num.length; j++) {
-                if (String(num)[j] == String(num)[j + i]) {
-                    count++
-                } else if (String(num)[j] != String(num)[j + i]) {
-                    return count;
+        function findNumber(num) {
+            let result = [];
+            let count = 1;
+            let arr = num.split('');
+            console.log("arr:"+arr);
+            for (let i = 0; i < arr.length; i++) {
+                if (num[i] == num[i + 1]) {
+                    count++;
+                } else{
+                    result.push(count);
+                    result.push(num[i]);
+                    count = 1;
                 }
             }
-            return count;
+            result = result.join("");
+            console.log(result);
+            return result;
         }
-        function findNumber(num) {
-            let n = num.length;
-            for (let i = 0; i < n; i++) {
-                
-            }
-        }
+        findNumber("6666677777");
     </script>
 </body>
 </html>
