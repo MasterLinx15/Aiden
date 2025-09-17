@@ -25,15 +25,24 @@
         }
         function farmersPrime() {
             let listoPimees = [];
-            for (let i = 0; i < 120; i++) {
+            for (let i = 0; i <= 120; i++) {
                 if (isPrime(i)) {
                     listoPimees.push(i);
                 }
             }
-            for (let h = 0; h < listoPimees.length; h++) {
-                for (let c = 0; c < listoPimees.length; c++) {
-                    for (let p = 0; p < listoPimees.length; p++) {
-
+            console.log(listoPimees);
+            for (let h of listoPimees) {
+                for (let c of listoPimees) {
+                    if (h === c) {
+                        continue;
+                    }
+                    for (let p of listoPimees) {          
+                        if (c === p || p === h) {
+                            continue;
+                        }
+                        if (c*(c+h) === p + 120) {
+                            return "Pigs: " + p + " Horses: " + h + " Cows: " + c;
+                        }
                     }
                 }
             }
