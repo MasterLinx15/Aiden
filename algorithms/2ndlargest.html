@@ -21,7 +21,7 @@
                 for (let i = 0; i < arr.length - 1; i++) {
                     let minIdx = i;
                     for (let j = i + 1; j < arr.length; j++) {
-                        if (arr[j] < arr[minIdx]) {
+                        if (arr[j] > arr[minIdx]) {
                             minIdx = j;
                         }
                     }
@@ -35,7 +35,13 @@
             }
     function secondLargest(arr) {
         let sortedArr = selectionSort(arr);
+        for (let i = 0; i < sortedArr.length; i++) {
+            if (i == 1 && isUniqueToArray(sortedArr[i], sortedArr)) {
+                return sortedArr[i];
+            }
+        }
     }
+    console.log(secondLargest([1, 2, 3, 4]));
 </script>
 </body>
 
