@@ -13,16 +13,12 @@
 
 </html>
 <script>
-  function run(string) {
-    const theActualString = "luffy likes to fart";
-    const aString = theActualString;
-    let theNewVersionTadaaaaaaaaaa = "";
-
-    for (let i = aString.length - 1; i >= 0; i--) {
-      theNewVersionTadaaaaaaaaaa += aString[i];
+  function reversString(string) {
+    let result = "";
+    for (let i = string.length - 1; i >= 0; i--) {
+      result += string[i];
     }
-
-    return theNewVersionTadaaaaaaaaaa;
+    return result;
   }
 
   alert(run()); 
