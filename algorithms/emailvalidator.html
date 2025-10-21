@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validator</title>
+</head>
+
+<body>
+    <script>
+        function isEmailChar(ch) {
+            for (let i = 0; i < letters.length; i++) {
+                const letters = "._-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                if (ch === letters[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function hasDot(str) {
+            for (let i of str) {
+                if (i == ".") {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function validateEmail(str) {
+            let hasat = false, afterat = false, afterDot = false;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == "@") {
+                    hasat = true, afterat = true;
+                    i++;
+                }
+                if (!isEmailChar(str[i])) {
+                    return false;
+                }
+                if (afterat == true) {
+                    str.substring(str[i], str.length)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
