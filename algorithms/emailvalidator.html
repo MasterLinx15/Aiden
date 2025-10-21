@@ -50,11 +50,14 @@
                 return false;
             }
         function validateEmail(str) {
-            for (let i of str) {
+            for (let i = 0; i < str.length; i++) {
                 const beforeAt = str.substring(0, str.indexOf("@"));
                 const afterAt = str.substring(str.indexOf("@"), str.length);
                 const afterDot = str.substring(str.indexOf("."), str.length);
-                if (!isEmailChar(i)) {
+                if (str[i] == "." && str[i + 1] == ".") {
+                    return false;
+                }
+                if (!isEmailChar(str[i])) {
                     return false;
                 }
                 if (!hasAt(str)) {
